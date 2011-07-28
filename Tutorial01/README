@@ -1,0 +1,13 @@
+Tutorial #1 - Creating a Minimal Empty OpenTK Window
+----------------------------------------------------
+
+Objective:
+	Create a minimal OpenTK project that simply opens a window with an OpenGL context that we can build on.
+
+Steps:
+	1) Create a new C# console project.
+	2) Add a reference to the OpenTK.dll assembly.
+	3) Derive your main class from GameWindow.
+	4) Add an empty constructor that calls the base constructor with width/height/title settings for the window.
+	5) Override OnRenderFrame() and tell our GameWindow to SwapBuffers().
+	6) Instantiate and Run() your class from static main().
