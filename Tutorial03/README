@@ -1,0 +1,15 @@
+Tutorial #3 - Matrices, the Orthographic View, and Rotations
+-------------------------------------------------------------
+
+Objective:
+	Rotate the rectangle around the center point of the screen, and remove the distortions that
+	occur when resizing the window.
+
+Steps:
+	1) Start with Tutorial02.
+	2) Add the private variable "rotation" for later use, initialized at 0.
+	3) Change OnResize() to set an orthographic projection viewport.
+	4) Override OnUpdateFrame() to adjust the rotation amount based on time passed.
+	5) Modify OnRenderFrame() to adjust the modelview based on the rotation amount.
+	6) Modify the drawing calls to use the original screen's WIDTH/HEIGHT for vertices.
+	7) Modify the Run() method to pass the number of times OnUpdateFrame() is called per second.

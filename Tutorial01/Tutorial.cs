@@ -10,12 +10,13 @@ namespace Tutorial01
     // Derive your primary class from GameWindow to use OpenTK's automatic OpenGL window handling.
     public class Tutorial : GameWindow
     {
-        // We are going to use this constant in all tutorials for the title of the window.
-        const string TITLE = "Tutorial #1";
+        const string TITLE = "Tutorial #1"; // Define a constant for the window title.
+        const int WIDTH = 800; // Define a constant for the screen width.
+        const int HEIGHT = 600; // Define a constant for the screen height.
         
-        // The constructor for the class. We tell the GameWindow that we derive from to create a 1024x768 window
-        // using the title "Tutorial #1".
-        public Tutorial() : base(1024, 768, GraphicsMode.Default, TITLE) { }
+        // The constructor for the class. We tell the GameWindow that we derive from to create a WIDTHxHEIGHT
+        // window using the TITLE we defined above.
+        public Tutorial() : base(WIDTH, HEIGHT, GraphicsMode.Default, TITLE) { }
 
         // Initialization of the OpenGL context and assets happens here.
         protected override void OnLoad(EventArgs e)
@@ -30,7 +31,7 @@ namespace Tutorial01
         {
             base.OnResize(e);
 
-            // set the viewport to match the new width and height of the window
+            // Set the viewport to match the new width and height of the window
             GL.Viewport(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, ClientRectangle.Height);
         }
 
@@ -39,7 +40,7 @@ namespace Tutorial01
         {
             base.OnRenderFrame(e);
 
-            GL.Clear(ClearBufferMask.ColorBufferBit); // clear the OpenGL color buffer
+            GL.Clear(ClearBufferMask.ColorBufferBit); // Clear the OpenGL color buffer
 
             SwapBuffers(); // Swapping the background and foreground buffers to display our scene
         }

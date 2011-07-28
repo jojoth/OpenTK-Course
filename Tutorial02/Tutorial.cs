@@ -10,8 +10,10 @@ namespace Tutorial02
     public class Tutorial : GameWindow
     {
         const string TITLE = "Tutorial #2";
+        const int WIDTH = 800;
+        const int HEIGHT = 600;
 
-        public Tutorial() : base(1024, 768, GraphicsMode.Default, TITLE) { }
+        public Tutorial() : base(WIDTH, HEIGHT, GraphicsMode.Default, TITLE) { }
 
         protected override void OnLoad(EventArgs e)
         {
