@@ -40,7 +40,8 @@ namespace Tutorial02
             // Each of these 4 lines sets the color and position of a single point. By default, the OpenGL view extends from
             // -1 to 1 both from left to right and bottom to top, regardless of the window size, so by using -0.5 and 0.5, we
             // end up with a rectangle that is exactly 1/4th the size of the screen, and located directly in its center. We
-            // don't care about the Z-coordinate since we are creating a rectangle that is perpendicular to our eye, so we use 0.
+            // don't care about the Z-coordinate since we are creating a rectangle that is perpendicular to our eye, so we
+            // use 0.
             GL.Color3(1f, 0f, 0f); GL.Vertex3(-0.5f, 0.5f, 0);      // red, top left
             GL.Color3(0f, 1f, 0f); GL.Vertex3(-0.5f, -0.5f, 0);     // green, bottom left
             GL.Color3(0f, 0f, 1f); GL.Vertex3(0.5f, -0.5f, 0);      // blue, bottom right
