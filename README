@@ -1,0 +1,32 @@
+Lusid's OpenTK Course
+---------------------
+
+I am providing this course based on particular issues I have with video game tutorials at this time:
+
+Newbies are pushed in the direction of either Unity or XNA. While this is great for the C# language,
+both of these options are fairly limiting, and unfortunately, most don't realize their limitations
+until it is too late (XNA = platform restrictions, Unity = licensing and flexibility).
+
+On a related note, when these newbies go on to make a really great game, some of which get released on
+XBLA or Steam, they begin to realize the mistakes they made in choice of platform, and it ends in loss
+of potential profit and misguided feelings towards C#. The fact of the matter is that the language
+makes very little difference, and I am here to prove that a quality game can be built on a great
+graphics library in C# that is both cross-platform capable as well as flexible and unrestricted in
+terms of licensing and functionality.
+
+Games built using OpenTK can currently run on Windows and Mac (as well as iPhone and Android devices
+if built using OpenGL ES 2). On top of that, similar to XNA or Unity, it is VERY easy to learn and use
+while still operating at a fairly low-level. Basically, the knowledge you gain building your game in
+C# and OpenTK can be applied to any other language and OpenGL-based library. This is NOT the case with
+XNA or Unity.
+
+With that being said, I hope you will take the time to learn from these tutorials, and you will add
+OpenTK to your current toolset (if you haven't already). Along with the source, I'll be posting blog
+entries with documentation (and possibly walkthrough videos) on my blog at:
+
+http://www.marcmelvin.com/blog/category/gamedev/opentk/
+
+Enjoy!
+
+Marc Melvin (aka Lusid)
+Bytescape, LLC.
