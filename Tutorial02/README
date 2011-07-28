@@ -1,0 +1,12 @@
+Tutorial #2 - Drawing a Colorful Rectangle
+----------------------------------------------------
+
+Objective:
+	Draw a very colorful 2D rectangle in the middle of the screen.
+
+Steps:
+	1) Start with Tutorial01.
+	2) Add the Begin(), Color3(), Vertex3(), and End() commands to RenderFrame().
+
+Take Note of the Following:
+	1) Resizing the window causes the rectangle to change it's shape to match. Why is the image distorting?

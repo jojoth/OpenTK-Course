@@ -12,5 +12,6 @@ Steps:
 	4) Add an empty constructor that calls the base constructor with width/height/title settings
 	   for the window.
 	5) Override OnLoad() and initialize the OpenGL context with a dark gray clear color.
-	6) Override OnRenderFrame() and tell our GameWindow to Clear() the screen and to SwapBuffers().
-	7) Instantiate and Run() your class from static main().
+	6) Override OnResize() and reset the OpenGL Viewport() using the new window width/height.
+	7) Override OnRenderFrame() and tell our GameWindow to Clear() the screen and to SwapBuffers().
+	8) Instantiate and Run() your class from static main().

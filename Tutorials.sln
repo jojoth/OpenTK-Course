@@ -3,6 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial01", "Tutorial01\Tutorial01.csproj", "{5F176BE8-751F-4DE9-BB16-E899416395BF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FB669520-5183-4490-923E-97BF1CD309CE}"
+	ProjectSection(SolutionItems) = preProject
+		README = README
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial02", "Tutorial02\Tutorial02.csproj", "{B4B536C3-40A2-4B1C-8552-2B808EA81132}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +20,10 @@ Global
 		{5F176BE8-751F-4DE9-BB16-E899416395BF}.Debug|x86.Build.0 = Debug|x86
 		{5F176BE8-751F-4DE9-BB16-E899416395BF}.Release|x86.ActiveCfg = Release|x86
 		{5F176BE8-751F-4DE9-BB16-E899416395BF}.Release|x86.Build.0 = Release|x86
+		{B4B536C3-40A2-4B1C-8552-2B808EA81132}.Debug|x86.ActiveCfg = Debug|x86
+		{B4B536C3-40A2-4B1C-8552-2B808EA81132}.Debug|x86.Build.0 = Debug|x86
+		{B4B536C3-40A2-4B1C-8552-2B808EA81132}.Release|x86.ActiveCfg = Release|x86
+		{B4B536C3-40A2-4B1C-8552-2B808EA81132}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

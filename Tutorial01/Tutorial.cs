@@ -22,7 +22,16 @@ namespace Tutorial01
         {
             base.OnLoad(e);
 
-            GL.ClearColor(0.1f, 0.1f, 0.1f, 1f); // set the clear color to a very dark gray
+            GL.ClearColor(0.1f, 0.1f, 0.1f, 1f); // Set the clear color to a very dark gray
+        }
+
+        // Triggered when the window resizes.
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            // set the viewport to match the new width and height of the window
+            GL.Viewport(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, ClientRectangle.Height);
         }
 
         // The rendering for the scene happens here.
@@ -32,7 +41,7 @@ namespace Tutorial01
 
             GL.Clear(ClearBufferMask.ColorBufferBit); // clear the OpenGL color buffer
 
-            SwapBuffers(); // swapping the background and foreground buffers to display our scene
+            SwapBuffers(); // Swapping the background and foreground buffers to display our scene
         }
 
         // The application's starting point. Here, we just initialize the Tutorial class and tell it to run.
