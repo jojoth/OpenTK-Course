@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using OpenTK;
 using OpenTK.Graphics;
+using OpenTK.Graphics.OpenGL;
 
 namespace Tutorial01
 {
@@ -16,13 +17,22 @@ namespace Tutorial01
         // using the title "Tutorial #1".
         public Tutorial() : base(1024, 768, GraphicsMode.Default, TITLE) { }
 
-        // The rendering for the scene happens here. In this bare bones example, the minimum we need to do is tell
-        // OpenTK to swap the backbuffer so we don't hit full CPU usage.
+        // Initialization of the OpenGL context and assets happens here.
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            GL.ClearColor(0.1f, 0.1f, 0.1f, 1f); // set the clear color to a very dark gray
+        }
+
+        // The rendering for the scene happens here.
         protected override void OnRenderFrame(FrameEventArgs e)
         {
             base.OnRenderFrame(e);
 
-            SwapBuffers();
+            GL.Clear(ClearBufferMask.ColorBufferBit); // clear the OpenGL color buffer
+
+            SwapBuffers(); // swapping the background and foreground buffers to display our scene
         }
 
         // The application's starting point. Here, we just initialize the Tutorial class and tell it to run.
