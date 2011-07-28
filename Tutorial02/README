@@ -9,4 +9,5 @@ Steps:
 	2) Add the Begin(), Color3(), Vertex3(), and End() commands to RenderFrame().
 
 Take Note of the Following:
-	1) Resizing the window causes the rectangle to change it's shape to match. Why is the image distorting?
+	1) Resizing the window causes the rectangle to change it's shape to match. Why is the image
+	   distorting?
