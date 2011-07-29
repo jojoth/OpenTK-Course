@@ -1,0 +1,26 @@
+Tutorial #5 - Animating Our Caveman
+-----------------------------------
+
+Objective:
+	Remove the rotation code, fix the alpha transparency, and animate our caveman.
+
+Steps:
+	1) Start with Tutorial04.
+	2) Replace the caveman.png image with the caveman-tiled.png image that includes multiple
+	   frames of animation, and set its "Copy to Output Directory" property to either "Copy
+	   if newer" or "Copy always."
+	3) Add the private variable "charAnimIndex" initialized to zero. This will maintain the
+	   value of our current frame of animation, and will be incremented during the update.
+	4) Add the private variable "charTextureIndexes" as an array of Vector2, and initialize
+	   it to equal the texture coordinates of each of the frames of animation in our PNG.
+	5) Change OnLoad() to load the new caveman-tiled.png file instead of caveman.png.
+	6) Change OnUpdateFrame() to increment our charAnimIndex counter by one, and rollback
+	   to 0 before it reaches 8 (our character's standing frame which we are not using).
+	7) Change OnRenderFrame() to use the coordinates from our charTextureIndexes array
+	   based on the current index value in charAnimIndex.
+	8) Change static Main() to lower the # of times our OnUpdateFrame() gets called per
+	   second. This is a temporary hack in order to slow down the animation.
+
+Resources:
+	The caveman image is provided courtesy of WidgetWorx and is freely available in their
+	SpriteLib package here: http://www.widgetworx.com/widgetworx/portfolio/spritelib.html

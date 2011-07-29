@@ -70,10 +70,10 @@ namespace Tutorial04
             // 0 to 1) correlates to the point we are rendering. The renderer will work out how the image needs
             // to be drawn for each of the pixels in-between these corner vertices. Additionally, we also
             // changed our Vertex3() calls to draw the points based on the caveman's width/height.
-            GL.TexCoord2(0f, 1f); GL.Vertex3(-charSize / 2, charSize / 2, 0);
-            GL.TexCoord2(0f, 0f); GL.Vertex3(-charSize / 2, -charSize / 2, 0);
-            GL.TexCoord2(1f, 0f); GL.Vertex3(charSize / 2, -charSize / 2, 0);
-            GL.TexCoord2(1f, 1f); GL.Vertex3(charSize / 2, charSize / 2, 0);
+            GL.TexCoord2(0f, 0f); GL.Vertex3(-charSize / 2, charSize / 2, 0);
+            GL.TexCoord2(0f, 1f); GL.Vertex3(-charSize / 2, -charSize / 2, 0);
+            GL.TexCoord2(1f, 1f); GL.Vertex3(charSize / 2, -charSize / 2, 0);
+            GL.TexCoord2(1f, 0f); GL.Vertex3(charSize / 2, charSize / 2, 0);
 
             GL.BindTexture(TextureTarget.Texture2D, 0); // Unbind texture when we are done with it.
 
