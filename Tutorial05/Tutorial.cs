@@ -72,7 +72,7 @@ namespace Tutorial05
             base.OnUpdateFrame(e);
 
             // When the frame is updated, we want to increase the animation index by one, but clamp it to the values
-            // between 0 and 7 using a modulus operator. This means it will rollback to 0 before it reaches 8.
+            // between 0 and 6 using a modulus operator. This means it will rollback to 0 before it reaches 7.
             charAnimIndex = (charAnimIndex + 1) % 7;
             //rotation += (float)e.Time * 360; [REMOVED]
         }
