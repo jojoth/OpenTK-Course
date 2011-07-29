@@ -5,7 +5,7 @@ using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Tutorial05
+namespace Tutorial07
 {
     static public class Utilities
     {

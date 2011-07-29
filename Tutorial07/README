@@ -1,0 +1,20 @@
+Tutorial #7 - Player Movement Using Modelview Translations
+----------------------------------------------------------
+
+Objective:
+	We want our character to move when the left and right keys are held down.
+
+Steps:
+	1) Start with Tutorial06.
+	2) Add the private variable "xPos" initialized to 0. This will track the player's x
+	   position on the screen.
+	3) Add the private variable "moveSpeed" initialized to 100f. This is the distance we
+	   want our player to move per second (defaulting to 100px / sec).
+	4) Change OnUpdateFrame() to add or remove moveSpeed from the player's xPos based
+	   on whether they are pressing left or right.
+	5) Change OnRenderFrame() to translate the modelview's position by player's xPos
+	   prior to drawing our player.
+
+Resources:
+	The caveman image is provided courtesy of WidgetWorx and is freely available in their
+	SpriteLib package here: http://www.widgetworx.com/widgetworx/portfolio/spritelib.html

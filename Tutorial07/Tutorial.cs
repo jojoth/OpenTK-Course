@@ -4,23 +4,24 @@ using System.Text;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
+using OpenTK.Input;
 
-namespace Tutorial05
+namespace Tutorial07
 {
     public class Tutorial : GameWindow
     {
-        const string TITLE = "Tutorial #5";
+        const string TITLE = "Tutorial #7";
         const int WIDTH = 800;
         const int HEIGHT = 600;
 
-        //private float rotation = 0.0f; [REMOVED]
-
         private int charTextureId;
         private float charSize = 64;
-        private int charAnimIndex = 0; // An index value into the current state of the animation.
+        private int charAnimIndex = 7;
+        private bool isMoving = false;
+        private int direction = 1;
+        private float xPos = 0f; // Add a variable for storing our X position on the screen.
+        private float moveSpeed = 100f; // Add a variable for movement speed.
 
-        // An array of texture coordinates that match each frame of the animation. I'm only using the first
-        // 7 frames of the image here (the eighth is a standing image, so I'm not going to include it yet).
         private Vector2[] charTextureIndexes = new Vector2[] {
             new Vector2(0f, 0f),
             new Vector2(0.25f, 0f),
@@ -29,6 +30,7 @@ namespace Tutorial05
             new Vector2(0f, 0.25f),
             new Vector2(0.25f, 0.25f),
             new Vector2(0.5f, 0.25f),
+            new Vector2(0.75f, 0.25f),
         };
 
         public Tutorial() : base(WIDTH, HEIGHT, GraphicsMode.Default, TITLE) { }
@@ -42,7 +44,6 @@ namespace Tutorial05
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
 
-            // Changed the texture to load an 8-frame tiled animation of our caveman friend.
             charTextureId = Utilities.LoadTexture(@"Images\caveman-tiled.png");
         }
 
@@ -64,10 +65,25 @@ namespace Tutorial05
         {
             base.OnUpdateFrame(e);
 
-            // When the frame is updated, we want to increase the animation index by one, but clamp it to the values
-            // between 0 and 7 using a modulus operator. This means it will rollback to 0 before it reaches 8.
-            charAnimIndex = (charAnimIndex + 1) % 7;
-            //rotation += (float)e.Time * 360; [REMOVED]
+            if (Keyboard[Key.Left])
+            {
+                direction = -1;
+                xPos -= (float)e.Time * moveSpeed; // Move the player left 60 pixels per second.
+                isMoving = true;
+            }
+            else if (Keyboard[Key.Right])
+            {
+                direction = 1;
+                xPos += (float)e.Time * moveSpeed; // Move the player right 60 pixels per second.
+                isMoving = true;
+            }
+            else
+                isMoving = false;
+
+            if (isMoving)
+                charAnimIndex = (charAnimIndex + 1) % 7;
+            else
+                charAnimIndex = 7;
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -75,7 +91,9 @@ namespace Tutorial05
             base.OnRenderFrame(e);
 
             GL.LoadIdentity();
-            //GL.Rotate(rotation, Vector3.UnitZ); [REMOVED]
+
+            // Translate the modelview by player's xPos before drawing our player.
+            GL.Translate(new Vector3(xPos, 0f, 0f));
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
@@ -83,12 +101,10 @@ namespace Tutorial05
 
             GL.BindTexture(TextureTarget.Texture2D, charTextureId);
 
-            // Modified the texture coordinates to use the values from the current animation state, and adding an additional 0.25f
-            // for the vertices that are on the right or bottom of the frame.
-            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0f, 0f)); GL.Vertex3(-charSize / 2, charSize / 2, 0);
-            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0f, 0.25f)); GL.Vertex3(-charSize / 2, -charSize / 2, 0);
-            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0.25f, 0.25f)); GL.Vertex3(charSize / 2, -charSize / 2, 0);
-            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0.25f, 0f)); GL.Vertex3(charSize / 2, charSize / 2, 0);
+            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0f, 0f)); GL.Vertex3(direction * -charSize / 2, charSize / 2, 0);
+            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0f, 0.25f)); GL.Vertex3(direction * -charSize / 2, -charSize / 2, 0);
+            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0.25f, 0.25f)); GL.Vertex3(direction * charSize / 2, -charSize / 2, 0);
+            GL.TexCoord2(charTextureIndexes[charAnimIndex] + new Vector2(0.25f, 0f)); GL.Vertex3(direction * charSize / 2, charSize / 2, 0);
 
             GL.BindTexture(TextureTarget.Texture2D, 0);
 
@@ -101,7 +117,7 @@ namespace Tutorial05
         {
             using (Tutorial tutorial = new Tutorial())
             {
-                tutorial.Run(10.0f); // Lower the update calls to only happen 10 times a second.
+                tutorial.Run(10f);
             }
         }
     }
