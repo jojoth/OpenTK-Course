@@ -1,0 +1,29 @@
+Tutorial #4 - Loading and Displaying an Image
+---------------------------------------------
+
+Objective:
+	Replace our colorful rectangle with an image of a caveman.
+
+Steps:
+	1) Start with Tutorial03.
+	2) Add the caveman.png image into an Images folder in the project, and set its "Copy to
+	   Output Directory" property to either "Copy if newer" or "Copy always."
+	3) Add the private variables "charTextureId" and "charSize". Initialize "charSize" at 64
+	   since the caveman we are using is 64 pixels wide by 64 pixels tall.
+	4) Add a new static helper class called Utilities with a single method LoadTexture(). See
+	   code for its implementation and comments.
+	5) Change OnLoad() to enable the Texture2D state in OpenGL and load the caveman.png from
+	   the filesystem (and store id in "charTextureId").
+	6) Change OnRenderFrame() to use texture coordinates instead of color codes. Since our
+	   caveman.png file has only one image, we will use the whole image.
+	7) Change OnRenderFrame() to draw a 64x64 square so it matches our image size.
+
+Take Note of the Following:
+	1) If our image is 64px by 64px, why are we using the texture coordinates from (0,0) to
+	   (1,1) instead of (0,0) to (64,64)?
+	2) The image contains transparency around our caveman, so why does he show up with a
+	   solid white background behind him?
+
+Resources:
+	The caveman image is provided courtesy of WidgetWorx and is freely available in their
+	SpriteLib package here: http://www.widgetworx.com/widgetworx/portfolio/spritelib.html
