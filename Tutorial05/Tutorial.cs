@@ -5,7 +5,7 @@ using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
-namespace Tutorial05
+namespace Tutorial06
 {
     public class Tutorial : GameWindow
     {

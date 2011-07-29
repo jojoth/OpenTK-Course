@@ -1,0 +1,27 @@
+Tutorial #6 - Handling Keyboard Input
+-------------------------------------
+
+Objective:
+	We want our character to face the direction the player presses (left or right), and to
+	only animate when the key is held down.
+
+Steps:
+	1) Start with Tutorial05.
+	2) Change initialization value of "charAnimIndex" to 7 since we want him to be standing
+	   still at the start up of the application.
+	3) Add the private variable "isMoving" initialized to false. This will be used to track
+	   whether the animation needs to run or not.
+	4) Add the private variable "direction" initialized to 1. This will track the direction
+	   the player was last facing. -1 for left, 1 for right.
+	5) Add one additional texture coordinate to "charTextureIndexes" for our standing frame
+	   of the caveman image.
+	6) Change OnUpdateFrame() to check for left/right keypresses, and toggle the direction
+	   and isMoving variables appropriately. Also switch the animation frame based on
+	   whether the player is moving or standing.
+	7) Change OnRenderFrame() to multiply the X coordinates of the player's vertices by
+	   direction. This will effectively flip our polygon horizontally when our direction
+	   changes.
+
+Resources:
+	The caveman image is provided courtesy of WidgetWorx and is freely available in their
+	SpriteLib package here: http://www.widgetworx.com/widgetworx/portfolio/spritelib.html
