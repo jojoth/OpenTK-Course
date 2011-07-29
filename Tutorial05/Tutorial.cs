@@ -39,7 +39,14 @@ namespace Tutorial05
 
             GL.ClearColor(0.1f, 0.1f, 0.1f, 1f);
             GL.Enable(EnableCap.Texture2D);
+            
+            // Add OpenGL state for blending to allow for transparency.
             GL.Enable(EnableCap.Blend);
+
+            // This may seem a bit confusing, but all it really means is that we want to blend the pixels of the
+            // source image based on its alpha (1 = fully opaque, 0.5 = half visible, 0 = fully transparent)
+            // with the pixels behind it based on the inverse of its alpha (1 = fully covered, 0.5 = half covered,
+            // 0 = fully visible). This basically means that transparent pixels in the image are ignored.
             GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
 
             // Changed the texture to load an 8-frame tiled animation of our caveman friend.
