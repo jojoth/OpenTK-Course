@@ -17,11 +17,11 @@ Steps:
 	6) Change OnLoad() to enable blending, and to set the blending mode to draw our images
 	   using the alpha of our source and the inverse alpha of the destination. This will
 	   make our image's transparency work correctly.
-	6) Change OnUpdateFrame() to increment our charAnimIndex counter by one, and rollback
+	7) Change OnUpdateFrame() to increment our charAnimIndex counter by one, and rollback
 	   to 0 before it reaches 8 (our character's standing frame which we are not using).
-	7) Change OnRenderFrame() to use the coordinates from our charTextureIndexes array
+	8) Change OnRenderFrame() to use the coordinates from our charTextureIndexes array
 	   based on the current index value in charAnimIndex.
-	8) Change static Main() to lower the # of times our OnUpdateFrame() gets called per
+	9) Change static Main() to lower the # of times our OnUpdateFrame() gets called per
 	   second. This is a temporary hack in order to slow down the animation.
 
 Resources:
